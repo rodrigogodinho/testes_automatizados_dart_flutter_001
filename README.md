@@ -1,2 +1,2 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# testes_automatizados_dart_flutter_001
+Estudos de testes automatizados em Dart e Flutter
