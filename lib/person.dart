@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:dart_testes_001/roundhelper.dart';
@@ -27,5 +28,11 @@ class Person {
 
   String get fullName {
     return '$firstName $surName';
+  }
+
+  // método creado só para testar o timeout dos testes
+  Future<int> get magicNumber async {
+    return Future.delayed(
+        Duration(seconds: 40), () => math.Random.secure().nextInt(2048));
   }
 }

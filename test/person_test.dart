@@ -63,4 +63,12 @@ void main() {
           equals('Rodrigo de Teste'),
         ]));
   });
+
+  // Este teste usa um timeout customizado, o padrão é de 30 segundos
+  // e neste teste será de 60 segundos
+  test('Obter número mágico', (() async {
+    var magicNumber = await person.magicNumber;
+    print(magicNumber);
+    expect(magicNumber, isA<int>());
+  }), timeout: Timeout(Duration(seconds: 60)));
 }
