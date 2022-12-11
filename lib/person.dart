@@ -30,9 +30,19 @@ class Person {
     return '$firstName $surName';
   }
 
-  // método creado só para testar o timeout dos testes
+  // método criado só para testar o timeout dos testes
   Future<int> get magicNumber async {
     return Future.delayed(
         Duration(seconds: 40), () => math.Random.secure().nextInt(2048));
+  }
+
+  String get isException {
+    throw Exception('Olá, sou uma Exception');
+  }
+
+  // Método criado para testar skip de testes
+  String get underConstruction {
+    throw Exception(
+        'Ops!!! Método em construção. Espera que logo, logo ele estará pronto!!!');
   }
 }

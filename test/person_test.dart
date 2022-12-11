@@ -27,12 +27,12 @@ void main() {
   });
 
   group('Idade', () {
-    test('Maior de 18 anos é maior', (() {
+    test('Maior de 18 anos é maior', () {
       print('executa teste');
       expect(person.isOlder, isTrue);
-    }));
+    });
 
-    test('Igual 18 anos é maior', (() {
+    test('Igual 18 anos é maior', () {
       final Person person = Person(
           firstName: "Rodrigo",
           surName: 'de Teste',
@@ -41,7 +41,7 @@ void main() {
           weight: 89.6);
       print('executa teste');
       expect(person.isOlder, isTrue);
-    }));
+    });
   });
 
   test('IMC deve ser 27.96', () {
@@ -66,9 +66,19 @@ void main() {
 
   // Este teste usa um timeout customizado, o padrão é de 30 segundos
   // e neste teste será de 60 segundos
-  test('Obter número mágico', (() async {
+  test('Obter número mágico', () async {
     var magicNumber = await person.magicNumber;
     print(magicNumber);
     expect(magicNumber, isA<int>());
-  }), timeout: Timeout(Duration(seconds: 60)));
+  }, timeout: Timeout(Duration(seconds: 60)));
+
+  // Teste de uso do skip
+  test('Skip de teste em construção', () {
+    print('Vamos pular este teste porque está em construção.');
+    expect(person.underConstruction, isFalse);
+  }, skip: 'Ainda estamos construindo este método.');
+
+  test('Teste para quando eu espero que algo realmente de errado', () {
+    expect(() => person.isException, throwsException);
+  });
 }
