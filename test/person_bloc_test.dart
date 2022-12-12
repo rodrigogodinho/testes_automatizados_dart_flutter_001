@@ -1,9 +1,8 @@
 import 'package:dart_testes_001/bloc/bloc/person_bloc.dart';
 import 'package:dart_testes_001/model/person.dart';
 import 'package:dart_testes_001/repository/person_repository.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:test/expect.dart';
-import 'package:test/scaffolding.dart';
 
 class PersonRepositoryMock extends Mock implements PersonRepository {}
 
@@ -35,6 +34,8 @@ void main() {
           isA<PersonListState>(),
         ]));
   });
+
+  tearDownAll(() async => await bloc.close());
 
   test('Deve retornar uma exception', () async {
     when(() => repository.getPerson()).thenThrow(Exception(

@@ -2,9 +2,9 @@ import 'dart:io' as io;
 
 import 'package:dart_testes_001/model/person.dart';
 import 'package:dart_testes_001/repository/person_repository.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
-import 'package:test/test.dart';
 
 class ClientMock extends Mock implements http.Client {}
 

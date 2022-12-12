@@ -1,5 +1,5 @@
 import 'package:dart_testes_001/model/person.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   late Person person;
