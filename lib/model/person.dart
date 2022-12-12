@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:dart_testes_001/roundhelper.dart';
@@ -45,4 +45,32 @@ class Person {
     throw Exception(
         'Ops!!! Método em construção. Espera que logo, logo ele estará pronto!!!');
   }
+
+  // Como o foco será aprender e testar recursos de teste automatizado
+  // não serão criadas classes para separar a responsabilidade, como por exemplo
+  // mappers para fazer a parte de mapear informação de JSON para entidade
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'firstName': firstName,
+      'lastName': surName,
+      'age': age,
+      'height': height,
+      'weight': weight,
+    };
+  }
+
+  factory Person.fromMap(Map<String, dynamic> map) {
+    return Person(
+      firstName: map['firstName'],
+      surName: map['lastName'],
+      age: map['age'],
+      height: (map['height'] as int).toDouble(),
+      weight: (map['weight'] as int).toDouble(),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Person.fromJson(String source) =>
+      Person.fromMap(json.decode(source) as Map<String, dynamic>);
 }

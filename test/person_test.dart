@@ -1,4 +1,4 @@
-import 'package:dart_testes_001/person.dart';
+import 'package:dart_testes_001/model/person.dart';
 import 'package:test/test.dart';
 
 void main() {
