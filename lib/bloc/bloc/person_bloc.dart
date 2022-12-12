@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+
 import 'package:dart_testes_001/model/person.dart';
 import 'package:dart_testes_001/repository/person_repository.dart';
-import 'package:meta/meta.dart';
 
 part 'person_event.dart';
 part 'person_state.dart';

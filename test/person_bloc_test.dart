@@ -27,6 +27,7 @@ void main() {
 
     bloc.add(PersonEventFetch());
 
+    // Para testes de stream e blocs usar expectLater e matches como o emitsInOrder
     await expectLater(
         bloc.stream,
         emitsInOrder([
