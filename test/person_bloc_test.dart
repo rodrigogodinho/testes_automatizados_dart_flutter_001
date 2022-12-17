@@ -15,6 +15,10 @@ void main() {
     bloc = PersonBloc(repository);
   });
 
+  tearDownAll(() {
+    bloc.close();
+  });
+
   test('Deve retornar uma lista de person', () async {
     final personA = Person(
         firstName: 'Rob', surName: 'Prueba', age: 39, height: 1.79, weight: 89);
@@ -34,8 +38,6 @@ void main() {
           isA<PersonListState>(),
         ]));
   });
-
-  tearDownAll(() async => await bloc.close());
 
   test('Deve retornar uma exception', () async {
     when(() => repository.getPerson()).thenThrow(Exception(
